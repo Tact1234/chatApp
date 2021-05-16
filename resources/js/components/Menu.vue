@@ -1,9 +1,9 @@
 <template>
-    <v-card max-width="300" tile>
+    <v-card max-width="200" tile>
         <v-list>
             <v-list-item to="/content1">
                 <v-list-item-avatar>
-                    <img src="https://picsum.photos/510/300?random" />
+                    <img src="https://cdn.vuetifyjs.com/images/john.jpg" />
                 </v-list-item-avatar>
                 <v-list-item-content
                     ><v-list-item-title
@@ -13,8 +13,8 @@
                 ></v-list-item-content>
             </v-list-item>
         </v-list>
-        <v-list flat>
-            <v-list-item-group color="primary">
+        <v-list dense>
+            <v-list-item-group v-model="selectedItem" color="primary">
                 <v-list-item
                     v-for="(item, i) in items"
                     :key="i"
@@ -36,16 +36,16 @@
 <script>
 export default {
     name: "Menu",
-
     data: () => ({
         username: "ユーザー１",
+        selectedItem: 1,
         items: [
             { name: "Talk", icon: "mdi-forum-outline", link: "/content2" },
             { name: "TimeLine", icon: "mdi-av-timer", link: "/content3" },
             {
                 name: "News",
                 icon: "mdi-newspaper-variant-outline",
-                link: "/content4"
+                link: "/news"
             },
             { name: "Files", icon: "mdi-folder-outline", link: "/content5" }
         ]
